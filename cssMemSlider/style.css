@@ -3,9 +3,10 @@
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    font-family: 'Prosto One', cursive;
+  padding: 0;
+  margin: 0;
+  font-family: "Prosto One", cursive;
+  box-sizing: border-box;
 }
 
 .slider {
@@ -14,13 +15,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("./img/bcg/1620234974_18-phonoteka_org-p-krasivii-fon-dlya-slaidera-22.jpg")
+  background: url("./img/bcg/1613704922_56-p-kosmicheskii-fon-dlya-prezentatsii-65.jpg")
     center center/cover no-repeat;
 }
 
 .slider__wrapper {
   width: 80%;
-  height: 80%;
+  height: 90%;
   border: 3px solid white;
   border-radius: 2rem;
   background-color: rgba(13, 13, 14, 0.8);
@@ -35,45 +36,129 @@ input {
 
 .wrapper {
   display: flex;
-  width: 700%;
-  height: 70%;
+  width: 100%;
+  height: 80%;
+  transition: transform 0.4s ease-out;
 }
 
 .slide {
-  width: calc(700% / 7);
+  width: 100%;
   display: flex;
-  margin: 2rem;
+  flex-shrink: 0;
   border-radius: 2rem;
   overflow: hidden;
-  /* margin: var(--size); */
-  /* border-radius: 10%; */
 }
 
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  /* border-radius: 5%; */
+  object-fit: fill;
 }
 
 .slider__bottom {
-    display: flex;
-    margin: 2rem;
+  display: flex;
+  margin: 2rem;
+  justify-content: space-between;
 }
 
 .slider__text-wrapper {
-    width: 45%;
-    overflow: hidden;
+  width: 45%;
+  overflow: hidden;
 }
 
 .slider__text {
-    display: flex;
-    width: 100%;
-    font-size: 2rem;
-    color: #fff;
+  display: flex;
+  width: 100%;
+  font-size: 2rem;
+  color: #fff;
 }
 
 .slider__text p {
-    width: 100%;
-    flex-shrink: 0;
+  width: 100%;
+  flex-shrink: 0;
 }
+
+.slider__controls {
+  display: flex;
+}
+
+.slider__control {
+  padding: 1rem;
+  align-self: start;
+  cursor: pointer;
+}
+
+.slider__control-inner {
+  display: flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #fff;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in;
+}
+
+.slider__control-inner span {
+  transform: scale(0.5);
+  transition: all 0.3s ease-in;
+}
+
+#slide1:checked~.slider__bottom label:nth-child(1) span,
+#slide2:checked~.slider__bottom label:nth-child(2) span,
+#slide3:checked~.slider__bottom label:nth-child(3) span,
+#slide4:checked~.slider__bottom label:nth-child(4) span,
+#slide5:checked~.slider__bottom label:nth-child(5) span,
+#slide6:checked~.slider__bottom label:nth-child(6) span,
+#slide7:checked~.slider__bottom label:nth-child(7) span {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  background-color: rgb(194, 46, 231);
+  border-radius: 50%;
+  transform: scale(1);
+}
+
+.slider__control:hover .slider__control-inner {
+  transform: scale(1.2);
+}
+
+/* .slider__control-wrapper:active
+  input[type="radio"]:checked
+  + .slider__control-inner {
+  background-color: rgb(115, 35, 168);
+} */
+
+.slider__control-wrapper {
+  padding: 1rem;
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+#slide1:checked~.wrapper {
+  transform: translateX(0);
+} 
+
+#slide2:checked~.wrapper {
+  transform: translateX(-100%);
+} 
+
+#slide3:checked~.wrapper {
+  transform: translateX(-200%);
+} 
+
+#slide4:checked~.wrapper {
+  transform: translateX(-300%);
+} 
+
+#slide5:checked~.wrapper {
+  transform: translateX(-400%);
+} 
+
+#slide6:checked~.wrapper {
+  transform: translateX(-500%);
+} 
+
+#slide7:checked~.wrapper {
+  transform: translateX(-600%);
+} 
